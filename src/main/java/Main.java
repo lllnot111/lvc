@@ -37,7 +37,7 @@ public class Main {
             set.add("回滚");
             set.add("reset");
             if(set.contains(args[0])){
-               // new Pull().pull();
+              // // new Pull().pull();
             }
             if(option!=null){
                 option.option(args);
