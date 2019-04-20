@@ -3,10 +3,18 @@ package option;
 import Constant.DirParam;
 import org.apache.commons.codec.digest.DigestUtils;
 
+import java.awt.geom.QuadCurve2D;
 import java.io.*;
 import java.nio.file.Files;
 
-public class Init {
+public class Init extends AbstractOption{
+    String s = System.getProperty(DirParam.ROOT_DIR);
+    String REPO = DirParam.ROOT_DIR+File.separator+DirParam.REPO;
+
+    @Override
+    public void option(String[] args) {
+        initRepo();
+    }
     /**
      * desc:初始化版本库
      * 1.生成Branch
@@ -16,13 +24,14 @@ public class Init {
      * 5.生成Info
      */
     public void initRepo() {
-        String s = System.getProperty(DirParam.ROOT_DIR);
-        File repo = new File(DirParam.REPO);
+        File repo = new File(REPO);
         if (!repo.exists())
             repo.mkdirs();
+        //需要创建的目录
         createDir(repo.getPath()+File.separator+DirParam.BRANCH);
         createDir(repo.getPath()+File.separator+DirParam.DATA);
         createDir(repo.getPath()+File.separator+DirParam.INFO);
+        //需要创建的文件
         createFile(repo.getPath()+File.separator+DirParam.HEAD);
         createFile(repo.getPath()+File.separator+DirParam.INDEX);
     }
@@ -36,15 +45,6 @@ public class Init {
                 e.printStackTrace();
             }
         }
-//        try {
-//            FileWriter fw = new FileWriter(file);
-//            BufferedWriter bw = new BufferedWriter(fw);
-//            bw.write("Branch:Master\tUser:Root\tCreateTime:"+System.currentTimeMillis()+"\n");
-//            bw.flush();
-//            bw.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
 
     }
     private void createDir(String dirName) {
@@ -53,4 +53,5 @@ public class Init {
             newDir.mkdirs();
         }
     }
+
 }
