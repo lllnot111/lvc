@@ -14,7 +14,8 @@ public class ChangeBranch extends AbstractOption {
     BranchUtil branchUtil = new BranchUtil();
     String s = System.getProperty(DirParam.ROOT_DIR);
     String PROJECT = DirParam.ROOT_DIR;//+File.separator+DirParam.REPO;
-    String REPO = DirParam.ROOT_DIR + File.separator + DirParam.REPO;
+    //String REPO = DirParam.ROOT_DIR + File.separator + DirParam.REPO;
+    String REPO = System.getProperty(DirParam.ROOT_DIR) + File.separator + DirParam.REPO;
 
     @Override
     public void option(String[] args) {

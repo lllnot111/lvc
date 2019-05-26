@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class FileUtil {
     public Data getFileFromData(String fileMd5){
         Data data = new Data();
-        File f = new  File(DirParam.ROOT_DIR+File.separator+DirParam.REPO+File.separator+DirParam.DATA+File.separator+
+        File f = new  File(System.getProperty(DirParam.ROOT_DIR)+File.separator+DirParam.REPO+File.separator+DirParam.DATA+File.separator+
                 fileMd5.substring(0,2)+File.separator+fileMd5.substring(2));
         data.name = fileMd5;
         data.file = f;
@@ -47,7 +47,7 @@ public class FileUtil {
     }
 
     public void createData(String md5,String content){
-        String REPO = DirParam.ROOT_DIR+File.separator+DirParam.REPO;
+        String REPO = System.getProperty(DirParam.ROOT_DIR)+File.separator+DirParam.REPO;
         try {
             File f = new File(REPO+File.separator+DirParam.DATA+File.separator+md5.substring(0,2)+File.separator +md5.substring(2));
             if(f.getParentFile()!=null){

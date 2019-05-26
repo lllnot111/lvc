@@ -12,7 +12,8 @@ public class Log extends AbstractOption{
     BranchUtil branchUtil = new BranchUtil();
     String s = System.getProperty(DirParam.ROOT_DIR);
     String PROJECT = DirParam.ROOT_DIR;//+File.separator+DirParam.REPO;
-    String REPO = DirParam.ROOT_DIR+ File.separator+DirParam.REPO;
+    //String REPO = DirParam.ROOT_DIR+ File.separator+DirParam.REPO;
+    String REPO = s+ File.separator+DirParam.REPO;
 
     @Override
     public void option(String[] args) {
@@ -39,7 +40,8 @@ public class Log extends AbstractOption{
              * 分支会在parent=null时到达最后一个
              * 这时虽然会加载commit，但是commit中不存在数据
              */
-            commit = fileUtil.getFileFromData(commit.content.get(1).split("\t")[1]);
+            if(commit.content.size()!=0)
+                commit = fileUtil.getFileFromData(commit.content.get(1).split("\t")[1]);
         }
     }
 

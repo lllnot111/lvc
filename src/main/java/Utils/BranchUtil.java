@@ -12,8 +12,9 @@ import java.util.HashSet;
 public class BranchUtil {
     FileUtil fileUtil = new FileUtil();
     String s = System.getProperty(DirParam.ROOT_DIR);
-    String PROJECT = DirParam.ROOT_DIR;//+File.separator+DirParam.REPO;
-    String REPO = DirParam.ROOT_DIR+ File.separator+DirParam.REPO;
+    String PROJECT = s;//DirParam.ROOT_DIR;//+File.separator+DirParam.REPO;
+    //String REPO = DirParam.ROOT_DIR+ File.separator+DirParam.REPO;
+    String REPO = s+ File.separator+DirParam.REPO;
 
     public void changeBranch(String branchName){
 

@@ -20,7 +20,8 @@ public class Push extends AbstractOption{
     FileUtil fileUtil = new FileUtil();
     HttpUtils httpUtils = new HttpUtils();
     String s = System.getProperty(DirParam.ROOT_DIR);
-    String REPO = DirParam.ROOT_DIR+File.separator+DirParam.REPO;
+    //String REPO = DirParam.ROOT_DIR+File.separator+DirParam.REPO;
+    String REPO = s+File.separator+DirParam.REPO;
 
     @Override
     public void option(String[] args) {
@@ -34,8 +35,6 @@ public class Push extends AbstractOption{
      * 4.上传文件
      */
     public void push(){
-        String s = System.getProperty(DirParam.ROOT_DIR);
-        File repo = new File("F:/test/aaaaaa.txt");
         Data head = fileUtil.getFileByPath(REPO+File.separator+DirParam.HEAD);
         Data branch = fileUtil.getFileByPath(REPO+File.separator+head.content.get(0));
 
@@ -77,7 +76,6 @@ public class Push extends AbstractOption{
     }
     private int upData(String md5){
         Data data = fileUtil.getFileFromData(md5);
-        System.out.println(data.content.get(0));
         MultipartEntityBuilder entityBuilder = MultipartEntityBuilder.create();
         entityBuilder.setContentType(ContentType.MULTIPART_FORM_DATA);
         entityBuilder.addBinaryBody("md5",md5.getBytes());

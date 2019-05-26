@@ -9,7 +9,7 @@ import java.nio.file.Files;
 
 public class Init extends AbstractOption{
     String s = System.getProperty(DirParam.ROOT_DIR);
-    String REPO = DirParam.ROOT_DIR+File.separator+DirParam.REPO;
+    String REPO = System.getProperty(DirParam.ROOT_DIR)+File.separator+DirParam.REPO;//DirParam.ROOT_DIR+File.separator+DirParam.REPO;
 
     @Override
     public void option(String[] args) {

@@ -14,7 +14,8 @@ public class Reset extends AbstractOption{
     HttpUtils httpUtils = new HttpUtils();
     BranchUtil branchUtil = new BranchUtil();
     String s = System.getProperty(DirParam.ROOT_DIR);
-    String REPO = DirParam.ROOT_DIR+ File.separator+DirParam.REPO;
+    //String REPO = DirParam.ROOT_DIR+ File.separator+DirParam.REPO;
+    String REPO = s+ File.separator+DirParam.REPO;
     @Override
     public void option(String[] args) {
         if(args.length<2){

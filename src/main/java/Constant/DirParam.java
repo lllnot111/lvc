@@ -3,7 +3,7 @@ package Constant;
 import java.io.File;
 
 public class DirParam {
-    public final static String ROOT_DIR = "F:"+ File.separator+"test";//"user.dir";
+    public final static String ROOT_DIR = "user.dir";//"F:"+ File.separator+"test";//;
     public final static String REPO = ".lvc";
     public final static String BRANCH = "Branch";
     public final static String DATA = "Data";

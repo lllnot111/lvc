@@ -47,6 +47,15 @@ public class Main {
         }
         //new BranchUtil().countLine(new File("F:\\mygit\\lvc\\src"),0);
     }
+    public void fun(){
+        {
+            //to do
+        }
+        {
+            //something add
+        }
+        return ;
+    }
 
 
 }

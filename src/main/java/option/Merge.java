@@ -20,7 +20,8 @@ public class Merge extends AbstractOption {
     FileUtil fileUtil = new FileUtil();
     String s = System.getProperty(DirParam.ROOT_DIR);
     String PROJECT = DirParam.ROOT_DIR;//+File.separator+DirParam.REPO;
-    String REPO = DirParam.ROOT_DIR + File.separator + DirParam.REPO;
+    //String REPO = DirParam.ROOT_DIR + File.separator + DirParam.REPO;
+    String REPO = s + File.separator + DirParam.REPO;
 
     @Override
     public void option(String[] args) {
@@ -32,15 +33,15 @@ public class Merge extends AbstractOption {
     }
 
     private void merge(String branchFromName, String branchToName) {
-        Data branchFrom = fileUtil.getFileByPath(REPO + File.separator + branchFromName);
-        Data branchTo = fileUtil.getFileByPath(REPO + File.separator + branchToName);
+        Data branchFrom = fileUtil.getFileByPath(REPO + File.separator+DirParam.BRANCH+File.separator+ branchFromName);
+        Data branchTo = fileUtil.getFileByPath(REPO + File.separator +DirParam.BRANCH+File.separator+ branchToName);
         Data commitFrom = fileUtil.getFileFromData(branchFrom.content.get(0));
         Data comnitTo = fileUtil.getFileFromData(branchTo.content.get(0));
         Data commiTemp = commitFrom;
-        String parentMd5 = commiTemp.content.get(0).split("\t")[1];
+        String parentMd5 = commiTemp.content.get(1).split("\t")[1];
         boolean needMerge = true;
         while (!parentMd5.equals("null")) {
-            if (parentMd5.equals(comnitTo.content.get(0).split("\t")[1])) {
+            if (parentMd5.equals(comnitTo.content.get(1).split("\t")[1])) {
                 needMerge = false;
                 break;
             }

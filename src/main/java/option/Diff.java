@@ -20,9 +20,9 @@ public class Diff extends AbstractOption {
 
     FileUtil fileUtil = new FileUtil();
     String s = System.getProperty(DirParam.ROOT_DIR);
-    String REPOPARENT = DirParam.ROOT_DIR;//+File.separator+DirParam.REPO;
-    String REPO = DirParam.ROOT_DIR+ File.separator+DirParam.REPO;
-
+    String REPOPARENT = s;//DirParam.ROOT_DIR;//+File.separator+DirParam.REPO;
+    //String REPO = DirParam.ROOT_DIR+ File.separator+DirParam.REPO;
+    String REPO = s+File.separator+DirParam.REPO;
     @Override
     public void option(String[] args) {
         HashMap<String,String> projectFilePath = new HashMap<String,String>();
